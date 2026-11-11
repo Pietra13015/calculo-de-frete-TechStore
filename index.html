@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Simulador de Orçamento e Frete</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TechStore</h1>
+            <p>Simulador Dinâmico de Orçamento e Frete</p>
+        </header>
+
+        <main>
+            <form id="form-orcamento">
+                <div class="form-group">
+                    <label for="valor-produto">Valor do Produto (R$):</label>
+                    <input type="number" id="valor-produto" step="0.01" min="0" placeholder="Ex: 100.00" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="forma-pagamento">Forma de Pagamento:</label>
+                    <select id="forma-pagamento" required>
+                        <option value="" disabled selected>Selecione a forma de pagamento</option>
+                        <option value="pix">PIX (15% de desconto)</option>
+                        <option value="boleto">Boleto (10% de desconto)</option>
+                        <option value="cartao-vista">Cartão à Vista (5% de desconto)</option>
+                        <option value="cartao-parcelado">Cartão Parcelado (0% de desconto)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-entrega">Modalidade de Frete:</label>
+                    <select id="tipo-entrega" required>
+                        <option value="" disabled selected>Selecione a modalidade de frete</option>
+                        <option value="retirada">Retirada (R$ 0,00)</option>
+                        <option value="padrao">Entrega Padrão (R$ 12,00)</option>
+                        <option value="expressa">Expressa (R$ 25,00)</option>
+                        <option value="super-expressa">Super Expressa (R$ 45,00)</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btn-calcular">Calcular Orçamento</button>
+            </form>
+
+            <div id="painel-resultado" class="hidden">
+                <h2>Resultado do Orçamento</h2>
+                <div class="resultado-item">
+                    <span>Valor do Produto:</span>
+                    <strong id="res-produto">R$ 0,00</strong>
+                </div>
+                <div class="resultado-item">
+                    <span>Desconto Aplicado:</span>
+                    <strong id="res-desconto">R$ 0,00</strong>
+                </div>
+                <div class="resultado-item">
+                    <span>Valor do Frete:</span>
+                    <strong id="res-frete">R$ 0,00</strong>
+                </div>
+                <div class="resultado-item total">
+                    <span>Total Final:</span>
+                    <strong id="res-total">R$ 0,00</strong>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
